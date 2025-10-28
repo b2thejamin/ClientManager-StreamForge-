@@ -18,5 +18,13 @@
     <ClCompile Include="ClientManager(StreamForge).cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ClientList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ClientList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
