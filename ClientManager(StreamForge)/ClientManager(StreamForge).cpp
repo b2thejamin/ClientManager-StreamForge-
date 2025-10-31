@@ -1,10 +1,12 @@
 ﻿#include <iostream>
 #include <string>
+#include <fstream>
 #include "ClientList.h"
 
 
 //Need to add TODO list
 //Need to add ability to save clients to file a long as TODO list progress
+//add a 24 hour timer for when the client is added and how long until the tasks are due
 
 
 ClientsList clientList;
@@ -38,10 +40,11 @@ int main()
                 clientList.listClients();
                 break;
 			case 4:
-                std::cout << "\nTODO LIST:\n";
+                /*std::cout << "\nTASK LIST:\n";
 				std::cout << "Client Name? ";
-                clientList.todo(clientName);
-                break;
+				std::cin >> clientName;
+                clientList.taskList(clientName);
+                break;*/
             case 5:
                 running = false;
                 break;
