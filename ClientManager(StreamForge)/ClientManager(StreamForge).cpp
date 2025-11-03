@@ -18,7 +18,7 @@ int main()
     {
         std::cout << "\nStreamForge - CLIENT MANAGER\n";
         int choice;
-        std::cout << "1. Add Client\n" << "2. Remove Client\n" << "3. Client List\n" << "4. View Client\n" << "5. Exit\n";
+        std::cout << "1. Add Client\n" << "2. Remove Client\n" << "3. Client List\n" << "4. View Client\n" << "5. Suggested AIs\n" << "6. Exit\n";
         std::cin >> choice;
         std::string clientName;
         switch (choice)
@@ -28,9 +28,11 @@ int main()
                 std::cout << "Client Name? ";
                 std::cin >> clientName;
                 clientList.addClient(clientName);
+				clientList.createTaskList(clientName);
                 break;
             case 2:
 				std::cout << "\nREMOVE CLIENT\n";
+				clientList.listClients();
                 std::cout << "Client Name? ";
                 std::cin >> clientName;
                 clientList.removeClient(clientName);
@@ -46,6 +48,22 @@ int main()
 				clientList.viewClient(clientName);
                 break;
             case 5:
+				std::cout << "\nSUGGESTED AIs FOR CONTENT CREATION TASKS:\n";
+				std::cout << "\nGrok or ChatGPT:\n";
+				std::cout << "\t -Thumbnails\n" << "\t -Descriptions\n" << "\t -Tags\n" << "\t -Titles\n" << "\t -Schedule\n";
+				std::cout << "Powder.gg or eklipse.gg:\n";
+				std::cout << "\t -Videos\n" << "\t -Clips\n";
+				std::cout << "\nWould you like a prompt for Grok or ChatGPT? (y/n): ";
+				char yn;
+                std::cin >> yn;
+                if (yn == 'y') {
+                    clientList.promptAI();
+                    break;
+                }
+                else {
+                    break;
+                }
+            case 6:
                 running = false;
                 break;
             default:

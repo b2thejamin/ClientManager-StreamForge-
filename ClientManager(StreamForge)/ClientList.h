@@ -14,5 +14,7 @@ public:
 	void removeClient(const std::string& clientName);
 	void listClients() const;
 	void viewClient(const std::string& clientName) const;
+	void createTaskList(const std::string& clientName) const;
+	void promptAI() const;
 };
 
