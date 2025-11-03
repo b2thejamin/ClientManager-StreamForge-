@@ -2,7 +2,24 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <array>
 #include "ClientList.h"
+
+
+
+
+std::array<std::string, 7> tasks = {
+	"Clips created",
+	"Video edited",
+	"Thumbnails created",
+	"Descriptions written",
+	"Tags researched",
+	"Titles created",
+	"Schedule posts"
+};
+
+
+
 
 void ClientsList::addClient(const std::string& clientName)
 {
@@ -12,13 +29,11 @@ void ClientsList::addClient(const std::string& clientName)
 		myFile << clientName << "\n";
 	}
 	myFile.close();
-
-
-
-
-	/*clients.push_back(clientName);
-	std::cout << "Client " << clientName << " added.\n";*/
 }
+
+
+
+
 void ClientsList::removeClient(const std::string& clientName)
 {
 	std::fstream myFile;
@@ -40,21 +55,11 @@ void ClientsList::removeClient(const std::string& clientName)
 		}
 		outFile.close();
 	}
-
-
-
-
-	/*auto it = std::find(clients.begin(), clients.end(), clientName);
-	if (it != clients.end())
-	{
-		clients.erase(it);
-		std::cout << "Client " << clientName << " removed.\n";
-	}
-	else
-	{
-		std::cout << "Client " << clientName << " not found.\n";
-	}*/
 }
+
+
+
+
 void ClientsList::listClients() const
 {
 	std::fstream myFile;
@@ -70,16 +75,24 @@ void ClientsList::listClients() const
 }
 
 
-// each client needs to be assigned a task list and it needsa to keep track of what tasks are finished and what arent
-void ClientsList::taskList() const
-{
-	bool finished = false;
-	std::cout << "1. Clips created: \n" << finished;
-	std::cout << "2. Video edited: \n" << finished;
-	std::cout << "3. Thumbnails created: \n" << finished;
-	std::cout << "4. Descriptions written: \n" << finished;
-	std::cout << "5. Tags researched: \n" << finished;
-	std::cout << "6. Titles created: \n" << finished;
-	std::cout << "7. Schedule posts: \n" << finished;
 
+// each client needs to be assigned a task list and it needs to keep track of what tasks are finished and what arent
+void ClientsList::viewClient(const std::string& clientName) const
+{
+	std::fstream myFile;
+	myFile.open("client-list.csv", std::ios::in);
+	if (myFile.is_open()) {
+		std::string line;
+		std::vector<std::string> clients;
+		while (std::getline(myFile, line)) {
+			if (line != clientName) {
+				clients.push_back(line);
+			}
+		}
+		std::cout << "\nViewing tasks for client: " << clientName << "\n";
+		for (const auto& task : tasks) {
+			std::cout << "- " << task << "\n";
+		}
+	}
 }
+

@@ -18,7 +18,7 @@ int main()
     {
         std::cout << "\nStreamForge - CLIENT MANAGER\n";
         int choice;
-        std::cout << "1. Add Client\n" << "2. Remove Client\n" << "3. Client List\n" << "4. View TODO\n" << "5. Exit\n";
+        std::cout << "1. Add Client\n" << "2. Remove Client\n" << "3. Client List\n" << "4. View Client\n" << "5. Exit\n";
         std::cin >> choice;
         std::string clientName;
         switch (choice)
@@ -40,11 +40,11 @@ int main()
                 clientList.listClients();
                 break;
 			case 4:
-                /*std::cout << "\nTASK LIST:\n";
-				std::cout << "Client Name? ";
+                std::cout << "\nVIEW CLIENT\n";
+                std::cout << "Client Name? ";
 				std::cin >> clientName;
-                clientList.taskList(clientName);
-                break;*/
+				clientList.viewClient(clientName);
+                break;
             case 5:
                 running = false;
                 break;

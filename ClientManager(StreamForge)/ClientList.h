@@ -12,7 +12,7 @@ private:
 public:
 	void addClient(const std::string& clientName);
 	void removeClient(const std::string& clientName);
-	void taskList() const;
 	void listClients() const;
+	void viewClient(const std::string& clientName) const;
 };
 
