@@ -1,12 +1,16 @@
 ﻿#include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip>
 #include "ClientList.h"
 
 
 //Need to add TODO list
 //Need to add ability to save clients to file a long as TODO list progress
 //add a 24 hour timer for when the client is added and how long until the tasks are due
+
+// fix console formatting
+// create fall backs if user does not type in correct responses
 
 
 ClientsList clientList;
@@ -18,7 +22,7 @@ int main()
     {
         std::cout << "\nStreamForge - CLIENT MANAGER\n";
         int choice;
-        std::cout << "1. Add Client\n" << "2. Remove Client\n" << "3. Client List\n" << "4. View Client\n" << "5. Suggested AIs\n" << "6. Exit\n";
+		std::cout << "1. Add Client\n" << "2. Remove Client\n" << "3. Client List\n" << "4. View Client\n" << "5. Suggested AIs\n" << "6. Exit\n" << "\nChoose an option: ";
         std::cin >> choice;
         std::string clientName;
         switch (choice)

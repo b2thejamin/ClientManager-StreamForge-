@@ -131,10 +131,10 @@ void ClientsList::promptAI() const
 		"Video is about: " + topic + "\n"
 		"Give me:\n"
 		"TITLE (3 lines, <60 chars)\n"
-		"THUMB (GENERATE 3 THUMBNAIL IMAGES 1280x720, bright)\n"
+		"THUMB (GENERATE 3 THUMBNAIL IMAGES relating to " + game + " and " + topic + ")\n"
 		"DESC (150-word template, no timestamps + 8 tags)\n"
 		"TAGS (25, comma list)\n"
-		"POST (3 dates/times next 10 days, e.g. “Fri 7pm EST”)\n"
+		"POST (3 dates/times next 10 days, e.g. Fri 7pm EST)\n"
 		"Max 12 total lines output. No fluff.\n";
 	std::cout << "\n^ =====END OF PROMPT===== ^\n";
 }
